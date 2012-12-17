@@ -43,7 +43,7 @@ serial = serialread;
 
 // Left
 if (serial == 'L') {
-  digitalWrite(5, LOW); // Set pin 5 as LOW
+  	digitalWrite(5, LOW); // Set pin 5 as LOW
 	digitalWrite(6, HIGH); // Set pin 6 as HIGH
 }
 // Right 
