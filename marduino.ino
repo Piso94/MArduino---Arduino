@@ -33,10 +33,11 @@ btread = BT.read(); // Write read of BT on char
 serialread = Serial.read(); // Write read of Serial on char
 }
 
-if (btread != -1) {
-serial = btread;
-} else {
-serial = serialread;
+if (btread != -1) { // Check if btread value is not -1
+serial = btread; // Write value of btread in serial
+Serial.end(); // If Serial is not used is disabled
+} else { // Otherwise
+serial = serialread; // Write value of serialread in serial
 }
 
 // Left
@@ -76,5 +77,5 @@ if (serial == 5) {
         Serial.println("Stop Forward-Back");
 }
 delay(33); // Wait 33 milliseconds
-serial = -1;
+serial = -1; // Write -1 in serial
 }
