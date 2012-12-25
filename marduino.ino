@@ -75,6 +75,6 @@ if (serial == 5) {
         digitalWrite(11, HIGH); // Set pin 11 as HIGH
         Serial.println("Stop Forward-Back");
 }
-delay(10); // Wait 10 milliseconds
+delay(33); // Wait 33 milliseconds
 serial = -1;
 }
