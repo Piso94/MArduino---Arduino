@@ -21,4 +21,9 @@ void command (int pinHIGH, int pinLOW) {
   digitalWrite(pinLOW, LOW); 
 }
 
+void stop (int pinHIGH, int pinHIGHS) {
+  digitalWrite(pinHIGH, HIGH);
+  digitalWrite(pinHIGHS, HIGH);
+}
+
 
