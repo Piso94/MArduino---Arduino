@@ -13,7 +13,7 @@ bool init (int fpin, int bpin, int lpin, int rpin) {
   pinMode (lpin,OUTPUT);
   pinMode (rpin,OUTPUT);
 
-  retrun true;
+  return true;
 }
 
 void command (int pinHIGH, int pinLOW) {
