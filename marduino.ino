@@ -6,7 +6,8 @@ Project Name: MArduino
 
 */
 
-#include <SoftwareSerial.h> // Import library
+#include <SoftwareSerial.h> // Import library for VirtualRTX
+#include "motor.h" // Import library for basicaly commands chip
 
 SoftwareSerial BT(2, 3); // Use pins 2 and 3 as a RX and TX virtual
 
