@@ -18,12 +18,9 @@ void setup() {
 BT.begin(9600); // Control Toy-Car
 Serial.begin(9600); // Debug
 
-pinMode(5, OUTPUT); // Set pin 5 as OUTPUT
-pinMode(6, OUTPUT); // Set pin 6 as OUTPUT
-pinMode(10, OUTPUT); // Set pin 10 as OUTPUT
-pinMode(11, OUTPUT); // Set pin 11 as OUTPUT
-
+if (init(11, 10, 6, 5)) {
 Serial.println("All Right"); // Print on Serial
+}
 }
 
 void loop() {
@@ -42,38 +39,32 @@ serial = serialread; // Write value of serialread in serial
 
 // Left
 if (serial == 4) {
-  	digitalWrite(5, LOW); // Set pin 5 as LOW
-	digitalWrite(6, HIGH); // Set pin 6 as HIGH
+  	command(6, 5);
         Serial.println("Left");
 }
 // Right 
 if (serial == 3) {
-	digitalWrite(5, HIGH); // Set pin 5 as HIGH
-	digitalWrite(6, LOW); // Set pin 6 as LOW
+	command(5, 6);
         Serial.println("Right");
 }
 // Forward
 if (serial == 2) {
-	digitalWrite(10, LOW); // Set pin 10 as LOW
-	digitalWrite(11, HIGH); // Set pin 11 as HIGH
+	command(11, 10);
         Serial.println("Forward");
 }
 // Back
 if (serial == 1) {
-	digitalWrite(10, HIGH); // Set pin 10 as HIGH
-	digitalWrite(11, LOW); // Set pin 11 as LOW
+	command(10, 11);
         Serial.println("Back");
 }
 // Stop Left-Right
 if (serial == 6) {
-        digitalWrite(5, HIGH); // Set pin 5 as HIGH
-        digitalWrite(6, HIGH); // Set pin 6 as HIGH
+        stop(5, 6);
         Serial.println("Stop Left-Right");
 }
 // Stop Forward-Back
 if (serial == 5) {
-        digitalWrite(10, HIGH); // Set pin 10 as HIGH
-        digitalWrite(11, HIGH); // Set pin 11 as HIGH
+        stop(10, 11);
         Serial.println("Stop Forward-Back");
 }
 delay(33); // Wait 33 milliseconds
