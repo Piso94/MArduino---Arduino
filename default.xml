@@ -12,5 +12,5 @@
            sync-c="true"
            sync-j="4" />
 
-  <project path="Marduino" name="Piso94/Marduino" />
+  <project path="MArduino" name="Piso94/MArduino" />
 </manifest>
