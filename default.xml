@@ -12,5 +12,5 @@
            sync-c="true"
            sync-j="4" />
 
-  <project path="MArduino" name="Piso94/MArduino" />
+  <project path="~/sketchbook/marduino" name="Piso94/MArduino" />
 </manifest>
