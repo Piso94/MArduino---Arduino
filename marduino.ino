@@ -1,13 +1,13 @@
 /*
 
 Author: Luca Pisoni
-Date: 17/12/2012
+Date: 07/01/2013
 Project Name: MArduino
 
 */
 
 #include <SoftwareSerial.h> // Import library for VirtualRTX
-#include "motor.h" // Import library for basicaly commands chip
+#include <motor.h> // Import library for basicaly commands chip
 
 SoftwareSerial BT(2, 3); // Use pins 2 and 3 as a RX and TX virtual
 
@@ -15,11 +15,13 @@ int serialread; // Initialize the variable serialread as char
 int btread; // Initialize the variable btread as char
 int serial; // Initialize the variable serial as char
 
+MOTOR motor; // Set variable motor
+
 void setup() {
 BT.begin(9600); // Control Toy-Car
 Serial.begin(9600); // Debug
 
-if (init(11, 10, 6, 5)) {
+if (motor.init(11, 10, 6, 5)) {
 Serial.println("All Right"); // Print on Serial
 }
 }
@@ -40,32 +42,32 @@ serial = serialread; // Write value of serialread in serial
 
 // Left
 if (serial == 4) {
-  	command(6, 5);
+  	motor.command(6, 5);
         Serial.println("Left");
 }
 // Right 
 if (serial == 3) {
-	command(5, 6);
+	motor.command(5, 6);
         Serial.println("Right");
 }
 // Forward
 if (serial == 2) {
-	command(11, 10);
+	motor.command(11, 10);
         Serial.println("Forward");
 }
 // Back
 if (serial == 1) {
-	command(10, 11);
+	motor.command(10, 11);
         Serial.println("Back");
 }
 // Stop Left-Right
 if (serial == 6) {
-        stop(5, 6);
+        motor.stops(5, 6);
         Serial.println("Stop Left-Right");
 }
 // Stop Forward-Back
 if (serial == 5) {
-        stop(10, 11);
+        motor.stops(10, 11);
         Serial.println("Stop Forward-Back");
 }
 delay(33); // Wait 33 milliseconds
