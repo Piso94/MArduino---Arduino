@@ -1,29 +1,25 @@
 /*
 
 Author: Luca Pisoni
-Date: 17/12/2012
+Date: 07/01/2013
 File Name: motor.h
 What it does: Includes basic commands to use the chip
 
 */
 
-bool init (int fpin, int bpin, int lpin, int rpin) {
-  pinMode (fpin,OUTPUT);
-  pinMode (bpin,OUTPUT);
-  pinMode (lpin,OUTPUT);
-  pinMode (rpin,OUTPUT);
+#ifndef MOTOR_H
+#define MOTOR_H
 
-  return true;
-}
+#include "Arduino.h"
 
-void command (int pinHIGH, int pinLOW) {
-  digitalWrite(pinHIGH, HIGH);
-  digitalWrite(pinLOW, LOW); 
-}
+class MOTOR
+{
+   private:
 
-void stop (int pinHIGH, int pinHIGHS) {
-  digitalWrite(pinHIGH, HIGH);
-  digitalWrite(pinHIGHS, HIGH);
-}
+   public:
+      bool init (byte fpin, byte bpin, byte lpin, byte rpin);
+      void command (byte pinHIGH, byte pinLOW);
+      void stops (byte pinHIGH, byte pinHIGHS);
+};
 
-
+#endif
