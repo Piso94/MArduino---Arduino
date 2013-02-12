@@ -1,9 +1,0 @@
-#######################################
-# Syntax Coloring Map For MOTOR
-#######################################
-
-MOTOR  KEYWORD1
-
-init	KEYWORD2
-command	KEYWORD2
-stops	KEYWORD2
